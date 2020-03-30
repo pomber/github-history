@@ -12,9 +12,7 @@ import { ReactComponent as VsCodeLogo } from "./icons/vscode.svg";
 import "./landing.css";
 
 export default function Landing() {
-  const url = `${window.location.protocol}//${
-    window.location.host
-  }/babel/babel/blob/master/packages/babel-core/test/browserify.js`;
+  const url = `${window.location.protocol}//${window.location.host}/babel/babel/blob/master/packages/babel-core/test/browserify.js`;
   return (
     <div className="landing">
       <header

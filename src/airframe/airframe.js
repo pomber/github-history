@@ -9,7 +9,10 @@ function mergeResults(results, composite) {
   }
   if (Array.isArray(firstResult)) {
     return firstResult.map((_, i) => {
-      return mergeResults(results.map(result => result[i]), composite);
+      return mergeResults(
+        results.map(result => result[i]),
+        composite
+      );
     });
   } else {
     const merged = Object.assign({}, ...results);
