@@ -20,6 +20,7 @@ export default function useChildren({
   let bottomPlaceholderH = 0;
 
   // This is the bottleneck
+  let visibleItemNumber = 1;
   items.forEach((item, i) => {
     const itemH = getRowHeight(item, i, data);
     const nextH = h + itemH;
@@ -31,8 +32,12 @@ export default function useChildren({
     } else if (isUnderBottom) {
       bottomPlaceholderH += itemH;
     } else {
-      children.push(getRow(item, i, data));
+      children.push(getRow(item, visibleItemNumber, i, data));
     }
+
+    // if the middle property is true, the item(line) is shown
+    // and the related counter has to be increased by one
+    if (item.middle) visibleItemNumber++;
 
     h = nextH;
   });

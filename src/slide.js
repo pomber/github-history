@@ -17,13 +17,32 @@ function getLineHeight(line, i, { styles }) {
   return styles[i].height != null ? styles[i].height : 15;
 }
 
-function getLine(line, i, { styles }) {
+function getLine(line, lineNumber, i, { styles }) {
   const style = styles[i];
   return (
     <div
       style={Object.assign({ overflow: "hidden", height: "15px" }, style)}
       key={line.key}
     >
+      <span
+        style={{
+          minWidth: "40px",
+          paddingLeft: "15px",
+          paddingRight: "15px",
+          textAlign: "right",
+          display: "inline-block",
+          opacity: 0.4,
+          WebkitTouchCallout: "none",
+          WebkitUserSelect: "none",
+          KhtmlUserSelect: "none",
+          MozUserSelect: "none",
+          OUserSelect: "none",
+          msUserSelect: "none",
+          userSelect: "none"
+        }}
+      >
+        {lineNumber}
+      </span>
       {!line.tokens.length && <br />}
       {line.tokens.map((token, i) => {
         const style = themeStylesByType[token.type] || {};
