@@ -14,7 +14,7 @@ Quickly browse the history of files in any git repo:
 
 [Try it](https://github.githistory.xyz/babel/babel/blob/master/packages/babel-core/test/browserify.js)
 
-> If you like this project consider [backing my open source work on Patreon!](https://patreon.com/pomber)  
+> If you like this project consider [backing my open source work on Patreon!](https://patreon.com/pomber)
 > And follow [@pomber](https://twitter.com/pomber) on twitter for updates.
 
 ## Extensions
@@ -43,6 +43,41 @@ javascript: (function() {
 ### Local Repos
 
 You can use Git History for local git repos with the [CLI](https://github.com/pomber/git-history/tree/master/cli) or with the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=pomber.git-file-history).
+
+## Hacking
+
+To run from local checkout:
+
+    yarn install
+    yarn start
+
+it'll open the starting page in browser, you'll want to append the path that comes after `https://github.com/`
+
+### Testing & linting
+
+    yarn test
+
+It stays running watching for source changes, press <kbd>w</kbd> for help, <kbd>q</kbd> to quit.
+
+If it says "Code style issues found in the above file(s). Forgot to run Prettier?", run:
+
+    yarn format
+
+### Netlify deploys
+
+Once you submit a PR to `pomber/git-history` repo, Netlify will try to build it a deploy a publicly accessible preview domain such as https://deploy-preview-137--github-history.netlify.com/.
+To get the preview URL, look for "deploy/netlify Deploy preview ready!" line, click on "Details" link to its right.
+It will also get updated on each push to the PR branch.
+
+If you want to set up hosting and public previews for branches of your fork _before_ you submit a PR:
+
+1. Go to https://app.netlify.com/.
+2. Login with GitHub.
+3. Click "New site from Git" button.
+   It'll likely prompt you to give Netlify some access to your repos.
+4. Choose your fork of this repo.
+5. Under "Build & deploy" settings, set Build command to `yarn build` and Publish directory to `build`.
+6. Under "Deploy contexts", configure which branches to build.
 
 ## Support Git History
 
