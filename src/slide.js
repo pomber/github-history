@@ -47,7 +47,8 @@ function Slide({ lines, styles, changes }) {
         margin: 0,
         height: "100%",
         width: "100%",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
+        fontSize: 16
       }}
     >
       <Scroller
