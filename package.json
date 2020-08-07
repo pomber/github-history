@@ -9,7 +9,7 @@
     "js-base64": "^2.5.1",
     "netlify-auth-providers": "^1.0.0-alpha5",
     "opencollective-postinstall": "^2.0.2",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.21.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.3",
