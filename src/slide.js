@@ -37,6 +37,16 @@ function getLine(line, i, { styles }) {
   );
 }
 
+function getStyleWithMark(styles) {
+  return styles.map((item) => {
+    if(item.opacity && item.opacity === 1) {
+      item.borderLeft = "2px solid rgb(255 190 0 / 71%)";
+      item.paddingLeft = "6px";
+    }
+    return item
+  })
+}
+
 function Slide({ lines, styles, changes }) {
   return (
     <pre
@@ -64,5 +74,6 @@ function Slide({ lines, styles, changes }) {
 export default function SlideWrapper({ time, version }) {
   const { lines, changes } = version;
   const styles = animation((time + 1) / 2, lines);
-  return <Slide lines={lines} styles={styles} changes={changes} />;
+  const stylesWithMark = getStyleWithMark(styles);
+  return <Slide lines={lines} styles={stylesWithMark} changes={changes} />;
 }
